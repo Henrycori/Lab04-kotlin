@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,30 +24,34 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Column(
-                modifier = Modifier.fillMaxSize().padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text(text = "Escribe tu saludo")
-                Spacer(modifier = Modifier.height(8.dp)) // Para commit 2
-            }
+            SaludoApp()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun SaludoApp() {
+    Column(
+        modifier = Modifier.fillMaxSize().padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(text = "Escribe tu saludo")
+        Spacer(modifier = Modifier.height(8.dp))
+    }
+    Button(onClick = { /* No hace nada */ }) {
+        Text("saludar")
+    }
+    Spacer(modifier = Modifier.height(8.dp))
+    Button(onClick = { /* No hace nada */ }) {
+        Text("no saludar")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     Lab04AStudioGitTheme {
-        Greeting("Android")
+        SaludoApp()
     }
 }
